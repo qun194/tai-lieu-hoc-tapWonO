@@ -17,24 +17,9 @@
         .search-box:focus { border-color: #1a73e8; box-shadow: 0 0 8px rgba(26,115,232,0.2); }
         
         .welcome-box { text-align: center; padding: 20px 10px; }
-        .welcome-avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .welcome-avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); background-color: #e8f0fe; }
         .welcome-text { font-size: 18px; font-weight: 600; color: #1a73e8; margin-bottom: 8px; }
         .welcome-subtext { font-size: 14px; color: #5f6368; }
-
-        /* KHU VỰC THỐNG KÊ LƯỢT TRUY CẬP VÀ ONLINE */
-        .stats-box { margin-top: 25px; padding: 18px; background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 10px; display: flex; justify-content: space-around; align-items: center; }
-        .stats-item { text-align: center; flex: 1; }
-        .stats-item:first-child { border-right: 1px solid #e0e0e0; }
-        .stats-title { font-size: 12px; color: #5f6368; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; justify-content: center; gap: 6px; }
-        .stats-number { font-size: 20px; color: #1a73e8; font-weight: 700; margin-top: 6px; }
-        
-        /* Chấm xanh nhấp nháy báo Online */
-        .online-dot { width: 8px; height: 8px; background-color: #34a853; border-radius: 50%; display: inline-block; animation: pulse 1.5s infinite; }
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(52, 168, 83, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(52, 168, 83, 0); }
-        }
 
         .terms-corner-btn { text-align: right; margin-bottom: 10px; }
         .btn-terms-toggle { background: #e8f0fe; color: #1a73e8; border: 1px solid #d2e3fc; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; transition: 0.2s; }
@@ -84,7 +69,8 @@
         </div>
 
         <div class="welcome-box">
-            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Atech" alt="Atech" class="welcome-avatar">
+            <!-- ĐÃ ĐỔI ẢNH ĐẠI DIỆN ATECH MỚI -->
+            <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=AtechWonO" alt="Atech Avatar" class="welcome-avatar">
             <div class="welcome-text">Xin chào bạn đến với Tài Liệu Học Tập WonO! 👋</div>
             <div class="welcome-subtext">Hãy sử dụng thanh điều hướng bên dưới để tìm kiếm hoặc tương tác với trợ lý nhé.</div>
             
@@ -97,18 +83,6 @@
                     <li><strong>Trách nhiệm nội dung:</strong> Ban quản trị có quyền cập nhật, chỉnh sửa hoặc tạm gỡ bỏ tài liệu mà không cần báo trước để đảm bảo chất lượng.</li>
                 </ol>
             </div>
-
-            <!-- BẢNG THỐNG KÊ LƯỢT XEM VÀ ONLINE -->
-            <div class="stats-box">
-                <div class="stats-item">
-                    <div class="stats-title">📊 Tổng lượt xem</div>
-                    <div class="stats-number" id="viewCount">Đang tải...</div>
-                </div>
-                <div class="stats-item">
-                    <div class="stats-title"><span class="online-dot"></span> Đang truy cập</div>
-                    <div class="stats-number" id="onlineCount">1</div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -117,7 +91,7 @@
         <input type="text" id="searchInput" class="search-box" placeholder="🔎 Nhập tên tài liệu cần tìm..." onkeyup="searchDocs()">
         
         <ul class="doc-list" id="searchResultsList">
-            <!-- DANH MỤC THƯ MỤC GOOGLE DRIVE -->
+            <!-- DANH MỤC THƯ MỤC GOOGLE DRIVE CHÍNH -->
             <li class="doc-item" style="display:none;">
                 <span class="doc-title">📂 Tài liệu các môn Tự nhiên - WonO</span>
                 <a href="https://drive.google.com/drive/folders/1sDkA955qjt8TrxgS89OhuMbvovdNWiVI?usp=sharing" class="btn-download" target="_blank">Mở thư mục</a>
@@ -131,25 +105,7 @@
                 <a href="https://drive.google.com/drive/folders/1TVJTkTXzeewx2vQc8vv5t204tXyfx_Fv?usp=sharing" class="btn-download" target="_blank">Mở thư mục</a>
             </li>
 
-            <!-- BẢNG TÍNH GOOGLE SHEETS -->
-            <li class="doc-item" style="display:none;">
-                <span class="doc-title">📊 Bảng tính tổng hợp tài liệu 01 (Google Sheets)</span>
-                <a href="https://docs.google.com/spreadsheets/d/1LAOdm3au2k3mkVtnht9PHIWc_cBYhbbyy6210LCauUM/edit?usp=drive_link" class="btn-download" target="_blank">Xem bảng tính</a>
-            </li>
-            <li class="doc-item" style="display:none;">
-                <span class="doc-title">📊 Bảng tính tổng hợp tài liệu 02 (Google Sheets)</span>
-                <a href="https://docs.google.com/spreadsheets/d/1ufe8zlJlb7GjLtmUPpnPH9mkmlzrKMUq9gdIZzL6kO0/edit?usp=drive_link" class="btn-download" target="_blank">Xem bảng tính</a>
-            </li>
-            <li class="doc-item" style="display:none;">
-                <span class="doc-title">📊 Bảng tính tổng hợp tài liệu 03 (Google Sheets)</span>
-                <a href="https://docs.google.com/spreadsheets/d/1doUxSnkwWVRFWqeQmeWYWbC37UTJcB57LWJqzMUiQrg/edit?usp=drive_link" class="btn-download" target="_blank">Xem bảng tính</a>
-            </li>
-            <li class="doc-item" style="display:none;">
-                <span class="doc-title">📊 Bảng tính tổng hợp tài liệu 04 (Google Sheets)</span>
-                <a href="https://docs.google.com/spreadsheets/d/1XjwKCvJgDUWLpFJQQz1cK7WYhEbKLz8UVe9l0ix28qg/edit?usp=sharing" class="btn-download" target="_blank">Xem bảng tính</a>
-            </li>
-
-            <!-- TÀI LIỆU NGỮ VẮN MỚI BỔ SUNG -->
+            <!-- TÀI LIỆU CÔ SƯƠNG MAI -->
             <li class="doc-item" style="display:none;">
                 <span class="doc-title">📖 Kĩ năng đọc hiểu văn bản thông tin - Cô Sương Mai</span>
                 <a href="https://tailieuonthi.edu.vn/ki-nang-doc-hieu-van-ban-thong-tin-co-suong-mai/" class="btn-download" target="_blank">Xem tài liệu</a>
@@ -170,17 +126,52 @@
                 <span class="doc-title">📖 Chiến lược 10 10 làm đọc hiểu (PDF)</span>
                 <a href="https://tailieuonthi.edu.vn/chien-luoc-10-10-doc-hieu-pdf/" class="btn-download" target="_blank">Xem tài liệu</a>
             </li>
+
+            <!-- TÀI LIỆU VĂN HỌC & DRIVE BỔ SUNG -->
+            <li class="doc-item" style="display:none;">
+                <span class="doc-title">📖 Tuyển tập các bài văn hay Trung Quốc</span>
+                <a href="https://drive.google.com/file/d/1G0LDb7HUKU0aNYfyW5SPwEnvdRIGHanD/view?usp=drive_link" class="btn-download" target="_blank">Xem file</a>
+            </li>
+            <li class="doc-item" style="display:none;">
+                <span class="doc-title">📖 Dẫn Chứng Văn Học Nước Ngoài</span>
+                <a href="https://drive.google.com/file/d/1eSQWTHgLozZJv5y0hBJ7curkkgixwZxg/view?usp=drive_link" class="btn-download" target="_blank">Xem file</a>
+            </li>
+            <li class="doc-item" style="display:none;">
+                <span class="doc-title">📂 Thư mục Lí Luận Văn Học</span>
+                <a href="https://drive.google.com/drive/folders/1h_J2n-pkyOx2Et1wEKe5A3B7QsVYW9DX?usp=drive_link" class="btn-download" target="_blank">Mở thư mục</a>
+            </li>
+            <li class="doc-item" style="display:none;">
+                <span class="doc-title">📂 Thư mục Nghị Luận Văn Học</span>
+                <a href="https://drive.google.com/drive/folders/1hRtVLIV7nLQObKqd1zoYzwzEdA85LKKJ?usp=drive_link" class="btn-download" target="_blank">Mở thư mục</a>
+            </li>
+            <li class="doc-item" style="display:none;">
+                <span class="doc-title">📂 Thư mục Nghị Luận Xã Hội</span>
+                <a href="https://drive.google.com/drive/folders/1hQhU_DXM9xtrKtfbAbjGg5xNuujjDsiM?usp=drive_link" class="btn-download" target="_blank">Mở thư mục</a>
+            </li>
+            <li class="doc-item" style="display:none;">
+                <span class="doc-title">📂 Thư mục Đọc Hiểu</span>
+                <a href="https://drive.google.com/drive/folders/1pdTPCtIcrvAgKggJeMzBrB4QlBrlyMYP?usp=drive_link" class="btn-download" target="_blank">Mở thư mục</a>
+            </li>
+            <li class="doc-item" style="display:none;">
+                <span class="doc-title">📂 Thư mục Thể Loại Văn Học</span>
+                <a href="https://drive.google.com/drive/folders/1l9jTCHot1FtOQb_HWV2qnlMZfjhDcGwu?usp=drive_link" class="btn-download" target="_blank">Mở thư mục</a>
+            </li>
+            <li class="doc-item" style="display:none;">
+                <span class="doc-title">📂 Thư mục Vốn Từ / Thay Thế Từ</span>
+                <a href="https://drive.google.com/drive/folders/1hpRmw2rIWUfFm2_gccMbOgImurVGLVzf?usp=drive_link" class="btn-download" target="_blank">Mở thư mục</a>
+            </li>
         </ul>
 
         <div id="noResult" class="no-result" style="display: none;">Không tìm thấy tài liệu phù hợp với từ khóa.</div>
-        <div id="searchPrompt" class="empty-notice">Nhập từ khóa (ví dụ: 'đọc hiểu', 'mở bài', 'dẫn chứng', 'nghị luận') vào ô trên để tìm kiếm.</div>
+        <div id="searchPrompt" class="empty-notice">Nhập từ khóa (ví dụ: 'lí luận', 'dẫn chứng', 'vốn từ', 'đọc hiểu') vào ô trên để tìm kiếm.</div>
     </div>
 
     <!-- 3. MỤC TRỢ LÝ BOT -->
     <div id="chatTab" class="tab-content">
         <div class="chat-container">
             <div class="chat-header">
-                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Atech" alt="Trợ Lý Atech">
+                <!-- ĐÃ ĐỔI ẢNH ĐẠI DIỆN ATECH TRONG HEADER CHAT -->
+                <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=AtechWonO" alt="Trợ Lý Atech">
                 <span>Trợ Lý Atech - Hỗ Trợ Hệ Thống 🤖</span>
             </div>
             <div class="chat-body" id="chatBody">
@@ -214,32 +205,6 @@
         let termsBox = document.getElementById('termsBox');
         termsBox.classList.toggle('active');
     }
-
-    /* XỬ LÝ LƯỢT XEM VÀ SỐ NGƯỜI DÙNG ONLINE */
-    let currentOnline = Math.floor(Math.random() * 8) + 5;
-
-    function updateOnlineCount() {
-        let change = Math.floor(Math.random() * 3) - 1;
-        currentOnline = Math.max(2, currentOnline + change);
-        document.getElementById('onlineCount').innerText = currentOnline + " người";
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-        let views = localStorage.getItem('wono_doc_views');
-        if (!views) {
-            views = 1250;
-        } else {
-            if (!sessionStorage.getItem('view_counted')) {
-                views = parseInt(views) + 1;
-                localStorage.setItem('wono_doc_views', views);
-                sessionStorage.setItem('view_counted', 'true');
-            }
-        }
-        document.getElementById('viewCount').innerText = parseInt(views).toLocaleString('vi-VN') + " lượt";
-
-        updateOnlineCount();
-        setInterval(updateOnlineCount, 4000);
-    });
 
     function switchTab(tabId, element) {
         let contents = document.getElementsByClassName('tab-content');
@@ -314,8 +279,8 @@
             "🤖 Chào bạn! Trợ lý Atech luôn sẵn sàng hỗ trợ."
         ],
         documents: [
-            "📂 Bạn có thể chuyển sang mục 'Tìm kiếm' ở thanh menu bên dưới và nhập các từ khóa như 'đọc hiểu', 'nghị luận', 'mở bài' để truy cập liên kết bài học nhé.",
-            "🔍 Để tìm tài liệu, hãy vào phần 'Tìm kiếm' và nhập tên bài học hoặc chuyên đề cần tìm."
+            "📂 Bạn có thể chuyển sang mục 'Tìm kiếm' ở thanh menu bên dưới và nhập từ khóa để tra cứu thư mục bài học, lí luận văn học hay các file tài liệu nhé.",
+            "🔍 Để tìm tài liệu, hãy vào phần 'Tìm kiếm' và nhập các từ khóa như 'lí luận', 'nghị luận', 'vốn từ'..."
         ],
         errors: [
             "⚠️ Nếu gặp lỗi link hoặc không tải được file, bạn vui lòng phản hồi tới email ban quản trị: qt19042k@gmail.com.",
@@ -325,7 +290,7 @@
             "📧 Mọi thắc mắc hoặc góp ý xin gửi về email: qt19042k@gmail.com."
         ],
         thanks: [
-            "😊 Không có gì! Chúc bạn học tập tốt và đạt kết quả cao với WonO!"
+            "😊 Không có gì! Chúc bạn học tập tốt và gặt hái nhiều kết quả cao cùng WonO!"
         ]
     };
 
